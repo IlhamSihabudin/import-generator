@@ -43,6 +43,14 @@
                                         <button class="btn btn-dark mt-3">Proses</button>
                                     </div>
                                 </div>
+
+                                @if(session('message'))
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
+                                            <h5 class="text-success">Success Import</h5>
+                                        </div>
+                                    </div>
+                                @endif
                             </form>
                         </div>
                     </div>

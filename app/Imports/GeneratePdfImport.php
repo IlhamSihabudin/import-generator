@@ -20,10 +20,11 @@ class GeneratePdfImport implements ToCollection
                 try {
                     $query = DB::table('t_trx_schedule')
                         ->where('visit_id', $row[0])
-                        ->select('visit_id', 'visit_type')
+                        ->join('t_mtr_site_link', 't_mtr_site_link.link_id_int', 't_trx_schedule.link_id')
+                        ->select('visit_id', 't_trx_schedule.visit_type as visit_type', 't_mtr_site_link.site_id_ne as site_id_ne', 't_mtr_site_link.site_id_fe as site_id_fe')
                         ->first();
 
-                    $url = 'http://10.0.5.37/report/index/'.base64_encode($query->visit_id).'/'.base64_encode($query->visit_type);
+                    $url = 'http://10.0.5.37/report/index/'.strtr(rtrim(base64_encode($query->visit_id), '='), '+/', '-_').'/'.strtr(rtrim(base64_encode($query->visit_type), '='), '+/', '-_');
 
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -32,7 +33,7 @@ class GeneratePdfImport implements ToCollection
                     $data = curl_exec($ch);
                     curl_close($ch);
 
-                    $data = file_put_contents(public_path('pdf').'/'.date('Ymd_His').'_'.$query->visit_id.'_'.$query->visit_type.'.pdf', $data);
+                    $data = file_put_contents(public_path('pdf').'/'.date('Y-m-d_His').'_'.$query->visit_id.'_'.$query->site_id_ne.'_'.$query->site_id_fe.'.pdf', $data);
                 }catch (\Exception $e){
                     DB::connection('mysql2')->table('pdf_error')->insert([
                         'visit_id' => $row[0],

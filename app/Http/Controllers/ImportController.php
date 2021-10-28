@@ -22,6 +22,6 @@ class ImportController extends Controller
 
         Excel::import(new GeneratePdfImport, $file);
 
-        return back();
+        return back()->withMessage('Import Success : '.date('Y-m-d H:i:s'));
     }
 }
