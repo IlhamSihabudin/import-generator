@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/import', [ImportController::class, 'index'])->name('import');
+Route::view('/gr/pdf', 'pdf/gr_view');
