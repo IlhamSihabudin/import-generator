@@ -136,17 +136,17 @@ class SummaryPCQCImport implements ToCollection
                             't_trx_schedule.visit_id',
                             't_mtr_site_link.site_id_ne',
                             DB::raw('NULL AS ne_code'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '388') AS ne_name"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '204') AS ip_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '391') AS subnet_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '392') AS geteway_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '388' LIMIT 1) AS ne_name"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '204' LIMIT 1) AS ip_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '391' LIMIT 1) AS subnet_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '392' LIMIT 1) AS geteway_ne"),
                             DB::raw('NULL AS gateway_type_ne'),
                             't_mtr_site_link.site_id_fe',
                             DB::raw('NULL AS fe_code'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '393') AS fe_name"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '209') AS ip_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '210') AS subnet_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '397') AS gateway_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '393' LIMIT 1) AS fe_name"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '209' LIMIT 1) AS ip_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '210' LIMIT 1) AS subnet_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '397' LIMIT 1) AS gateway_fe"),
                             DB::raw('NULL AS gateway_type_fe'),
                             DB::raw('NULL AS date'),
                             DB::raw('NULL AS name'),
@@ -155,17 +155,17 @@ class SummaryPCQCImport implements ToCollection
                             DB::raw('NULL AS modem_slot_ne'),
                             DB::raw('NULL AS port_status_ne'),
                             DB::raw('NULL AS clock_sync_ne'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '117') AS sn_idu_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '117' LIMIT 1) AS sn_idu_ne"),
                             DB::raw('NULL AS sn_modem_ne'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '369') AS rxl_link_budget_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '369' LIMIT 1) AS rxl_link_budget_ne"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '187'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '187' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '373'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '373' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '188'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '188' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '374'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '374' LIMIT 1),
                                 ';'
                                 )
                                 AS rxl_on_actual_ne"),
@@ -173,177 +173,177 @@ class SummaryPCQCImport implements ToCollection
                             DB::raw('NULL AS modem_slot_fe'),
                             DB::raw('NULL AS port_status_fe'),
                             DB::raw('NULL AS clock_sync_fe'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '129') AS sn_idu_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '129' LIMIT 1) AS sn_idu_fe"),
                             DB::raw('NULL AS sn_modem_fe'),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '371') AS rxl_link_budget_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '371' LIMIT 1) AS rxl_link_budget_fe"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '375'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '375' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '189'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '189' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '190'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '190' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '376'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '376' LIMIT 1),
                                 ';'
                                 )
                                 AS rxl_on_actual_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '167') AS eth_bandwidth"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '167' LIMIT 1) AS eth_bandwidth"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '191'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '191' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '377'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '377' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '377'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '377' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '192'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '192' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '193'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '193' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '379'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '379' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '194'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '194' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '380'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '380' LIMIT 1),
                                 ';'
                                 )
                                 AS tx_power"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '153'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '153' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '154'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '154' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '169'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '169' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '170'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '170' LIMIT 1),
                                 ';'
                                 )
                                 AS sub_band"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '159'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '159' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '160'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '160' LIMIT 1),
                                 ';'
                                 )
                                 AS channel_spacing"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '163'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '163' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '164'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '164' LIMIT 1),
                                 ';'
                                 )
                                 AS modulation"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_ne1"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_ne2"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_ne3"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '155' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '156' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_ne4"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_fe1"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_fe2"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_fe3"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '171' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '172' LIMIT 1),
                                 ';'
                                 )
                                 AS frek_fe4"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '195') AS config"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '195' LIMIT 1) AS config"),
                             DB::raw('NULL AS firmware_version'),
                             DB::raw('NULL AS dn'),
                             DB::raw('NULL AS lb'),
-                            DB::raw("(SELECT latitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3973') AS lat_ne"),
-                            DB::raw("(SELECT longitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3973') AS long_ne"),
-                            DB::raw("(SELECT latitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3974') AS lat_fe"),
-                            DB::raw("(SELECT longitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3974') AS long_fe"),
+                            DB::raw("(SELECT latitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3973' LIMIT 1) AS lat_ne"),
+                            DB::raw("(SELECT longitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3973' LIMIT 1) AS long_ne"),
+                            DB::raw("(SELECT latitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3974' LIMIT 1) AS lat_fe"),
+                            DB::raw("(SELECT longitude FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3974' LIMIT 1) AS long_fe"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3047'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3047' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3064'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3064' LIMIT 1),
                                 ';'
                                 )
                                 AS tower_leg"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3222'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3222' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3228'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3228' LIMIT 1),
                                 ';'
                                 )
                                 AS azimuth"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3212') AS height_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3045') AS feeder_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3246') AS height_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3062') AS feeder_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3212' LIMIT 1) AS height_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3045' LIMIT 1) AS feeder_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3246' LIMIT 1) AS height_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3062' LIMIT 1) AS feeder_fe"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '119'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '119' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '121'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '121' LIMIT 1),
                                 ';'
                                 )
                                 AS sn_odu_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3040') AS rau_weight_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3040' LIMIT 1) AS rau_weight_ne"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '131'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '131' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '133'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '133' LIMIT 1),
                                 ';'
                                 )
                                 AS sn_odu_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3057') AS rau_weight_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '125') AS sn_ant_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '137') AS sn_ant_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '124') AS ant_type_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '140') AS merk_ant_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3213') AS ant_gain_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '136') AS ant_type_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '144') AS merk_ant_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3245') AS ant_gain_fe"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '141') AS ant_diameter_ne"),
-                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '145') AS ant_diameter_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3057' LIMIT 1) AS rau_weight_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '125' LIMIT 1) AS sn_ant_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '137' LIMIT 1) AS sn_ant_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '124' LIMIT 1) AS ant_type_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '140' LIMIT 1) AS merk_ant_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3213' LIMIT 1) AS ant_gain_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '136' LIMIT 1) AS ant_type_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '144' LIMIT 1) AS merk_ant_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '3245' LIMIT 1) AS ant_gain_fe"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '141' LIMIT 1) AS ant_diameter_ne"),
+                            DB::raw("(SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '145' LIMIT 1) AS ant_diameter_fe"),
                             DB::raw("CONCAT(
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '143'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '143' LIMIT 1),
                                 ';',
-                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '147'),
+                                (SELECT checklist_result FROM t_trx_checklist_result WHERE visit_id = ".$visit_id." AND checklist_id = '147' LIMIT 1),
                                 ';'
                                 )
                                 AS polarization"),
