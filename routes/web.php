@@ -22,4 +22,5 @@ Route::get('/excel', function () {
 });
 Route::post('/import', [ImportController::class, 'index'])->name('import');
 Route::post('/excel', [ImportController::class, 'excel'])->name('excel');
+Route::get('/excel/{id}', [ImportController::class, 'excelById'])->name('excelById');
 Route::view('/gr/pdf', 'pdf/gr_view');
