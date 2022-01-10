@@ -146,7 +146,7 @@ class ImportController extends Controller
         $datas[] = (array) DB::table('t_trx_schedule')
             ->where('t_trx_schedule.visit_id', $visit_id)
             ->leftJoin('t_trx_schedule_sign', 't_trx_schedule.visit_id', 't_trx_schedule_sign.visit_id')
-            ->leftJoin('t_mtr_region', 't_trx_schedule.region_id', 't_mtr_region.region_id')
+            ->leftJoin('t_mtr_region_xl', 't_trx_schedule.region_id', 't_mtr_region.region_id')
             ->leftJoin('t_trx_po_link', 't_trx_po_link.link_id_int', 't_trx_schedule.link_id')
             ->leftJoin('t_mtr_site_link', 't_mtr_site_link.link_id_int', 't_trx_schedule.link_id')
             ->leftJoin('t_mtr_checklist_options', 't_mtr_checklist_options.option_id', DB::raw('t_trx_schedule.visit_type::integer'))
@@ -160,7 +160,7 @@ class ImportController extends Controller
                 DB::raw('NULL AS company_name'),
                 DB::raw('(SELECT usr.user_name FROM t_trx_schedule_sign AS sch LEFT JOIN t_mtr_user AS usr ON sch.user_id = usr.user_id WHERE sign_type = 1 AND visit_id = '.$visit_id.' ORDER BY sch.created_on DESC LIMIT 1) AS installer_name'),
                 DB::raw('NULL AS contact_number'),
-                DB::raw('t_mtr_region.region_code'),
+                DB::raw('t_mtr_region_xl.region_name'),
                 't_mtr_site_link.link_id',
                 't_trx_schedule.visit_id',
                 't_mtr_site_link.site_id_ne',
